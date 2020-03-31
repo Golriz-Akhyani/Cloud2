@@ -8,6 +8,7 @@ C:\Users\golri\Documents\GitHub\Cloud2\Setup\bin\Debug\netcoreapp2.2\Setup.dll
 C:\Users\golri\Documents\GitHub\Cloud2\Setup\bin\Debug\netcoreapp2.2\Setup.pdb
 C:\Users\golri\Documents\GitHub\Cloud2\Setup\bin\Debug\netcoreapp2.2\Setup.Views.dll
 C:\Users\golri\Documents\GitHub\Cloud2\Setup\bin\Debug\netcoreapp2.2\Setup.Views.pdb
+C:\Users\golri\Documents\GitHub\Cloud2\Setup\obj\Debug\netcoreapp2.2\Setup.csprojAssemblyReference.cache
 C:\Users\golri\Documents\GitHub\Cloud2\Setup\obj\Debug\netcoreapp2.2\Setup.csproj.CoreCompileInputs.cache
 C:\Users\golri\Documents\GitHub\Cloud2\Setup\obj\Debug\netcoreapp2.2\Setup.RazorAssemblyInfo.cache
 C:\Users\golri\Documents\GitHub\Cloud2\Setup\obj\Debug\netcoreapp2.2\Setup.RazorAssemblyInfo.cs
