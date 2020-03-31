@@ -19,3 +19,5 @@ project.assets.json
 *.vc.db
 *.vc.opendb
 /.vs
+.vs/
+obj/
