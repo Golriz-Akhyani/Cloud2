@@ -20,4 +20,4 @@ project.assets.json
 *.vc.opendb
 /.vs
 .vs/
-obj/
+obj
