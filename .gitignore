@@ -18,6 +18,6 @@ project.assets.json
 *.nuget.g.targets
 *.vc.db
 *.vc.opendb
-obj/
-bin/
-.vs/
+*/obj/
+*/bin/
+*/.vs/
