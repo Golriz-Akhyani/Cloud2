@@ -19,4 +19,4 @@ project.assets.json
 *.nuget.g.targets
 *.vc.db
 *.vc.opendb
-.vs/
+.vs\
