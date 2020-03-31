@@ -1,4 +1,5 @@
-obj/
+[Oo]bj
+[Bb]in
 *.wrn
 *.projhash*
 *.userosscache
@@ -19,5 +20,5 @@ project.assets.json
 *.nuget.g.targets
 *.vc.db
 *.vc.opendb
-.vs/
+.vs/*
 .vs
