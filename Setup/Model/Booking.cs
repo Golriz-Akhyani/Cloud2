@@ -6,9 +6,9 @@ namespace Setup.Models
 
     public class Booking
     {
-        public int BookID { get; set; }
+        public int BookingID { get; set; }
 
-        public ICollection<Account> Accounts { get; set; }
-        public ICollection<Listing> Lists { get; set; }
+        public ICollection<Account> Account { get; set; }
+        public ICollection<Listing> Listing { get; set; }
     }
 }

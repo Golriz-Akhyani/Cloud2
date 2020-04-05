@@ -4,7 +4,59 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron">
+    <h1 class="text-center">Welcome to Setup</h1>
 </div>
+
+<div class="row">
+    <p>
+        In this website, we are trying something new! :)
+    </p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <h3> Begin to Search</h3>
+
+        <hr>
+
+        <div class="row justify-content-md-center">
+            <div class="col-lg-11 col-md-11 col-sm-11">
+                <div class="form-row">
+
+                    <label for="occupants" class="col-sm-4 col-form-label">Occupants</label>
+                    <div class="form-group col-sm-4">
+                        <input type="number" class="form-control" placeholder="0" min="0" id="occupants">
+                    </div>
+
+                    <div class="form-row">
+
+                        <label for="startdate" class="col-sm-4 col-form-label">Start Date</label>
+                        <div class="form-group ">
+                            <input type="date" class="form-control col-sm-11" id="strtdate">
+                        </div>
+
+                        <label for="enddate" class="col-sm-4 col-form-label">End Date</label>
+                        <div class="form-group ">
+                            <input type="date" class="form-control col-sm-11" id="enddate">
+                        </div>
+
+                    </div>
+                    <br>
+                    <center><input type="submit" class="btn btn-primary btn-lg" value="Search" name="" onclick="window.location.href='listing.html';"></center>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-5">
+        <h3 class="text-center">I want to host!</h3>
+        <hr>
+        <br />
+        <br>
+        <center><input type="submit" class="btn btn-primary btn-lg" value="Let's Get Started!" name="" onclick="window.location.href='signin.html';"></center>
+    </div>
+</div>
+

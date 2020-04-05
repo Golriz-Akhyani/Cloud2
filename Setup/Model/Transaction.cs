@@ -10,7 +10,7 @@ namespace Setup.Models
         public int Price { get; set; }
         public DateTime TransactionDate { get; set; }
 
-    public ICollection<Booking> Bookings { get; set; }
-        
+        public ICollection<Booking> Booking { get; set; }
+
     }
 }

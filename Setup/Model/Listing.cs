@@ -12,7 +12,7 @@ namespace Setup.Models
 
 
 
-        public ICollection<Place> Places { get; set; }
-        public ICollection<Time>Time { get; set; }
+        public ICollection<Place> Place { get; set; }
+        public ICollection<Time> Time { get; set; }
     }
 }

@@ -8,9 +8,9 @@ namespace Setup.Models
     {
         public int PhotoID { get; set; }
         public string PhotoName { get; set; }
-       
 
 
-        public ICollection<Place> Places { get; set; }
+
+        public ICollection<Place> Place { get; set; }
     }
 }

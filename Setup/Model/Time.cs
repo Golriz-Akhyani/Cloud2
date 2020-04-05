@@ -8,6 +8,6 @@ namespace Setup.Models
     {
         public int TimeID { get; set; }
         public string Description { get; set; }
-       
+
     }
 }

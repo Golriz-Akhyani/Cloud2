@@ -17,6 +17,6 @@ namespace Setup.Models
         public string Province { get; set; }
         public string ZipCode { get; set; }
         public string UserName { get; set; }
-     
+
     }
 }
