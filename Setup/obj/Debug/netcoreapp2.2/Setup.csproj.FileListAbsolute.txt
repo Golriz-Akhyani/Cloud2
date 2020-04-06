@@ -79,3 +79,4 @@ C:\Users\golri\Documents\GitHub\Cloud2\Setup\obj\Debug\netcoreapp2.2\Razor\Pages
 C:\Users\golri\Documents\GitHub\Cloud2\Setup\obj\Debug\netcoreapp2.2\Razor\Pages\Register\Details.cshtml.g.cs
 C:\Users\golri\Documents\GitHub\Cloud2\Setup\obj\Debug\netcoreapp2.2\Razor\Pages\Register\Edit.cshtml.g.cs
 C:\Users\golri\Documents\GitHub\Cloud2\Setup\obj\Debug\netcoreapp2.2\Razor\Pages\Register\Index.cshtml.g.cs
+C:\Users\golri\Documents\GitHub\Cloud2\Setup\obj\Debug\netcoreapp2.2\Razor\Pages\SignIn.cshtml.g.cs
