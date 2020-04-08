@@ -15,5 +15,6 @@ namespace Setup.Data
         }
         public DbSet<Setup.Models.Account> Account { get; set; }
         public DbSet<Setup.Models.Place> Place { get; set; }
+
     }
 }

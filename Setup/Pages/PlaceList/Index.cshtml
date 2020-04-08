@@ -32,30 +32,31 @@
             <th>
                 @Html.DisplayNameFor(model => model.Place[0].Address)
             </th>
-           
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Place) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlaceName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Liscence)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-          
+        @foreach (var item in Model.Place)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlaceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Liscence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
 
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.PlaceID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.PlaceID">Delete</a>
-            </td>
-        </tr>
-}
+
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.PlaceID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.PlaceID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

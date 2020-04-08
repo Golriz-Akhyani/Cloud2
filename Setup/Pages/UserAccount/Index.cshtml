@@ -1,11 +1,11 @@
 ﻿@page
-@model Setup.Pages.Register.IndexModel
+@model Setup.Pages.UserAccount.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "UserAccount";
 }
 
-<h1>Index</h1>
+<h1>List of Users</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -22,7 +22,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Account[0].CompanyName)
             </th>
-           
+            
             <th>
                 @Html.DisplayNameFor(model => model.Account[0].UserName)
             </th>
@@ -40,7 +40,8 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompanyName)
-        
+            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>

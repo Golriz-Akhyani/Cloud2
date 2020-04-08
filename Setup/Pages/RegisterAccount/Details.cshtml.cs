@@ -8,18 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using Setup.Data;
 using Setup.Models;
 
-namespace Setup.Pages.Register
+namespace Setup.Pages.RegisterAccount
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly Setup.Data.SetupContext _context;
 
-        public DeleteModel(Setup.Data.SetupContext context)
+        public DetailsModel(Setup.Data.SetupContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
         public Account Account { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -36,24 +35,6 @@ namespace Setup.Pages.Register
                 return NotFound();
             }
             return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Account = await _context.Account.FindAsync(id);
-
-            if (Account != null)
-            {
-                _context.Account.Remove(Account);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }

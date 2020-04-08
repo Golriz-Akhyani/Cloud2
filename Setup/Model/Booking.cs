@@ -12,3 +12,4 @@ namespace Setup.Models
         public ICollection<Listing> Listing { get; set; }
     }
 }
+

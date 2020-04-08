@@ -13023,23 +13023,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rchen\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\golri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rchen\\Documents\\GitHub\\Cloud2\\Setup\\Setup.csproj",
+      "projectUniqueName": "C:\\Users\\golri\\Documents\\GitHub\\Cloud2\\Setup\\Setup.csproj",
       "projectName": "Setup",
-      "projectPath": "C:\\Users\\rchen\\Documents\\GitHub\\Cloud2\\Setup\\Setup.csproj",
-      "packagesPath": "C:\\Users\\rchen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rchen\\Documents\\GitHub\\Cloud2\\Setup\\obj\\",
+      "projectPath": "C:\\Users\\golri\\Documents\\GitHub\\Cloud2\\Setup\\Setup.csproj",
+      "packagesPath": "C:\\Users\\golri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\golri\\Documents\\GitHub\\Cloud2\\Setup\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\rchen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\golri\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13095,7 +13091,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

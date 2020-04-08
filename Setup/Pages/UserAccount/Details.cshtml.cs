@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Setup.Data;
 using Setup.Models;
 
-namespace Setup.Pages.Register
+namespace Setup.Pages.UserAccount
 {
     public class DetailsModel : PageModel
     {

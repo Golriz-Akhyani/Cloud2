@@ -4,18 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Setup.Data;
 using Setup.Models;
 
-namespace Setup.Pages
+namespace Setup.Pages.RegisterAccount
 {
-    public class EditModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly Setup.Data.SetupContext _context;
 
-        public EditModel(Setup.Data.SetupContext context)
+        public DeleteModel(Setup.Data.SetupContext context)
         {
             _context = context;
         }
@@ -39,37 +38,22 @@ namespace Setup.Pages
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (!ModelState.IsValid)
+            if (id == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Account).State = EntityState.Modified;
+            Account = await _context.Account.FindAsync(id);
 
-            try
+            if (Account != null)
             {
+                _context.Account.Remove(Account);
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AccountExists(Account.AccountID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private bool AccountExists(int id)
-        {
-            return _context.Account.Any(e => e.AccountID == id);
         }
     }
 }

@@ -1,0 +1,48 @@
+﻿@page
+@model Setup.Pages.SearchPlace.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Search Place</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].PlaceName)
+            </th>
+       
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].Address)
+            </th>
+  
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Place) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+ 
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+          
+                <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a>
+             
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

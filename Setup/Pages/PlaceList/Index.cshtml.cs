@@ -19,7 +19,7 @@ namespace Setup.Pages.PlaceList
             _context = context;
         }
 
-        public IList<Place> Place { get;set; }
+        public IList<Place> Place { get; set; }
         public string CurrentFilter { get; set; }
         public async Task OnGetAsync(string searchstring)
         {

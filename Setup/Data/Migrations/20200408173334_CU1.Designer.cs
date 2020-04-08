@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Setup.Data;
 
 namespace Setup.Data.Migrations
 {
     [DbContext(typeof(SetupContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200408173334_CU1")]
+    partial class CU1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,8 +200,6 @@ namespace Setup.Data.Migrations
 
                     b.Property<string>("LastName");
 
-                    b.Property<int?>("PlaceID");
-
                     b.Property<string>("Province");
 
                     b.Property<string>("Street");
@@ -212,36 +212,7 @@ namespace Setup.Data.Migrations
 
                     b.HasKey("AccountID");
 
-                    b.HasIndex("PlaceID");
-
                     b.ToTable("Account");
-                });
-
-            modelBuilder.Entity("Setup.Models.Place", b =>
-                {
-                    b.Property<int>("PlaceID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Liscence");
-
-                    b.Property<bool>("ParkingLot");
-
-                    b.Property<string>("PlaceName");
-
-                    b.Property<bool>("Washroom");
-
-                    b.Property<bool>("Whiteboard");
-
-                    b.Property<bool>("Wifi");
-
-                    b.HasKey("PlaceID");
-
-                    b.ToTable("Place");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -287,13 +258,6 @@ namespace Setup.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Setup.Models.Account", b =>
-                {
-                    b.HasOne("Setup.Models.Place")
-                        .WithMany("Account")
-                        .HasForeignKey("PlaceID");
                 });
 #pragma warning restore 612, 618
         }

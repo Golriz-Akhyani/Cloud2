@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Setup.Data;
 using Setup.Models;
 
-namespace Setup.Pages
+namespace Setup.Pages.SearchPlace
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace Setup.Pages
             _context = context;
         }
 
-        public Account Account { get; set; }
+        public Place Place { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace Setup.Pages
                 return NotFound();
             }
 
-            Account = await _context.Account.FirstOrDefaultAsync(m => m.AccountID == id);
+            Place = await _context.Place.FirstOrDefaultAsync(m => m.PlaceID == id);
 
-            if (Account == null)
+            if (Place == null)
             {
                 return NotFound();
             }
