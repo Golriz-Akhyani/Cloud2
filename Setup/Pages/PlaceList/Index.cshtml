@@ -1,0 +1,61 @@
+﻿@page
+@model Setup.Pages.PlaceList.IndexModel
+
+@{
+    ViewData["Title"] = "PlaceList";
+}
+
+<h1>PlaceList</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].PlaceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].Liscence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].Address)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Place) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Liscence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+          
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PlaceID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PlaceID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
