@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Setup.Data;
 using Setup.Models;
 
-namespace Setup.Pages.RegisterAccount
+namespace Setup.Pages.Register
 {
     public class CreateModel : PageModel
     {
