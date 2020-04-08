@@ -18,12 +18,20 @@ namespace Setup.Pages.SearchPlace
         {
             _context = context;
         }
-
-        public IList<Place> Place { get;set; }
-
-        public async Task OnGetAsync()
+        public IList<Place> Place { get; set; }
+        public string CurrentFilter { get; set; }
+        public async Task OnGetAsync(string searchstring)
         {
-            Place = await _context.Place.ToListAsync();
+            IQueryable<Place> placeIQ = from s in _context.Place select s;
+            CurrentFilter = searchstring;
+            if (!String.IsNullOrEmpty(searchstring))
+            {
+                placeIQ = placeIQ.Where(s => s.Address.Contains(searchstring));
+            }
+
+
+            Place = await placeIQ
+                .AsNoTracking().ToListAsync();
         }
     }
 }
