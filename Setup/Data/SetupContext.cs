@@ -15,6 +15,11 @@ namespace Setup.Data
         }
         public DbSet<Setup.Models.Account> Account { get; set; }
         public DbSet<Setup.Models.Place> Place { get; set; }
+        public DbSet<Setup.Models.Booking> Booking { get; set; }
+        public DbSet<Setup.Models.Listing> Listing { get; set; }
+        public DbSet<Setup.Models.Photo> Photo { get; set; }
+        public DbSet<Setup.Models.Time> Time { get; set; }
+        public DbSet<Setup.Models.Transaction> Transaction { get; set; }
 
     }
 }
