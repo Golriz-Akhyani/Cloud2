@@ -7,6 +7,17 @@
 
 <h1>Search Place</h1>
 
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search by Address:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -16,10 +27,6 @@
        
             <th>
                 @Html.DisplayNameFor(model => model.Place[0].Address)
-            </th>
-  
-            <th>
-                @Html.DisplayNameFor(model => model.Place[0].Description)
             </th>
             <th></th>
         </tr>
@@ -34,9 +41,6 @@
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
  
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
             <td>
           
                 <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a>
