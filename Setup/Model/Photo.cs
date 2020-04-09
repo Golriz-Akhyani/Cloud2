@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Setup.Models
 {
@@ -8,9 +10,7 @@ namespace Setup.Models
     {
         public int PhotoID { get; set; }
         public string PhotoName { get; set; }
-
-
-
-        public ICollection<Place> Place { get; set; }
+        public int PlaceID { get; set; }
+        public Place Place { get; set; }
     }
 }

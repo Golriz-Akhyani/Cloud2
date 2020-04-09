@@ -19,6 +19,7 @@ namespace Setup.Pages.SearchPlace
             _context = context;
         }
         public IList<Place> Place { get; set; }
+        public IList<Photo> Photo { get; set; }
         
         public string CurrentFilter { get; set; }
         public async Task OnGetAsync(string searchstring)
@@ -29,8 +30,7 @@ namespace Setup.Pages.SearchPlace
             {
                 placeIQ = placeIQ.Where(s => s.Address.Contains(searchstring));
             }
-
-
+            
             Place = await placeIQ
                 .AsNoTracking().ToListAsync();
         }

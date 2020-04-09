@@ -28,12 +28,28 @@
             <th>
                 @Html.DisplayNameFor(model => model.Place[0].Address)
             </th>
-           
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].Wifi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].Whiteboard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].ParkingLot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].Washroom)
+            </th>
+         
+            <th>
+                <b>Photos</b>
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Place) {
+@foreach (var item in Model.Place)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.PlaceName)
@@ -41,7 +57,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
-            
+            <td>
+                @Html.DisplayFor(modelItem => item.Wifi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Whiteboard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkingLot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Washroom)
+            </td>
 
             <td>
 

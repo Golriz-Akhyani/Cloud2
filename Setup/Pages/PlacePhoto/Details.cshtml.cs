@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Setup.Data;
 using Setup.Models;
 
-namespace Setup.Pages.SearchPlace
+namespace Setup.Pages.PlacePhoto
 {
     public class DetailsModel : PageModel
     {
@@ -19,12 +19,8 @@ namespace Setup.Pages.SearchPlace
             _context = context;
         }
 
+        public Photo Photo { get; set; }
 
-        public IList<Photo> Photo { get; set; }
-        public Place Place { get; set; }
-
-     
-        /*need help*/
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -32,17 +28,13 @@ namespace Setup.Pages.SearchPlace
                 return NotFound();
             }
 
-            this.Photo = await _context.Photo.ToListAsync();
+            Photo = await _context.Photo.FirstOrDefaultAsync(m => m.PhotoID == id);
+
             if (Photo == null)
             {
                 return NotFound();
             }
             return Page();
-        }    
-
-
-
+        }
     }
-
 }
-

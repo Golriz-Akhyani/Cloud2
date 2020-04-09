@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Setup.Models
 {
@@ -18,5 +20,7 @@ namespace Setup.Models
 
 
         public ICollection<Account> Account { get; set; }
+        public ICollection<Photo> Photos { get; set; }
+      
     }
 }
