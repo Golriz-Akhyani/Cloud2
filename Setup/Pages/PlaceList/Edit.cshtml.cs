@@ -23,6 +23,8 @@ namespace Setup.Pages.PlaceList
         [BindProperty]
         public Place Place { get; set; }
 
+        public byte[] PhotoBytes { get; set;
+        }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)

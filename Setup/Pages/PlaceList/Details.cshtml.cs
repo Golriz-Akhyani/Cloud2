@@ -21,6 +21,8 @@ namespace Setup.Pages.PlaceList
 
         public Place Place { get; set; }
 
+        public IList<Photo> Photo { get; set;}
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -34,6 +36,9 @@ namespace Setup.Pages.PlaceList
             {
                 return NotFound();
             }
+
+            Photo = await _context.Photo.Where(p => p.PlaceID == id).AsNoTracking().ToListAsync();
+
             return Page();
         }
     }

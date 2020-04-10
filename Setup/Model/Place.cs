@@ -20,7 +20,8 @@ namespace Setup.Models
 
 
         public ICollection<Account> Account { get; set; }
-        public ICollection<Photo> Photos { get; set; }
-      
+        public ICollection<Photo> Photo { get; set; }
+   
+
     }
 }
