@@ -10,8 +10,8 @@ using Setup.Data;
 namespace Setup.Migrations
 {
     [DbContext(typeof(SetupContext))]
-    [Migration("20200410014812_n")]
-    partial class n
+    [Migration("20200414034421_auto")]
+    partial class auto
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -188,7 +188,9 @@ namespace Setup.Migrations
 
             modelBuilder.Entity("Setup.Models.Account", b =>
                 {
-                    b.Property<int>("AccountID");
+                    b.Property<int>("AccountID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("BookingID");
 
@@ -263,6 +265,8 @@ namespace Setup.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<byte[]>("PhotoBytes");
+
                     b.Property<string>("PhotoName");
 
                     b.Property<int>("PlaceID");
@@ -284,13 +288,14 @@ namespace Setup.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("Liscence");
+                    b.Property<string>("License");
 
                     b.Property<int?>("ListingID");
 
                     b.Property<bool>("ParkingLot");
 
-                    b.Property<string>("PlaceName");
+                    b.Property<string>("PlaceName")
+                        .HasMaxLength(50);
 
                     b.Property<bool>("Washroom");
 
@@ -389,7 +394,7 @@ namespace Setup.Migrations
                         .HasForeignKey("BookingID");
 
                     b.HasOne("Setup.Models.Place")
-                        .WithMany("Account")
+                        .WithMany("AccountID")
                         .HasForeignKey("PlaceID");
                 });
 
@@ -409,8 +414,8 @@ namespace Setup.Migrations
 
             modelBuilder.Entity("Setup.Models.Photo", b =>
                 {
-                    b.HasOne("Setup.Models.Place", "Place")
-                        .WithMany("Photos")
+                    b.HasOne("Setup.Models.Place")
+                        .WithMany("PhotoID")
                         .HasForeignKey("PlaceID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

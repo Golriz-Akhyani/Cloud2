@@ -5,7 +5,7 @@ namespace Setup.Models
 {
     public class Account
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AccountID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Setup.Migrations
 {
-    public partial class n : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -213,8 +213,8 @@ namespace Setup.Migrations
                 {
                     PlaceID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PlaceName = table.Column<string>(nullable: true),
-                    Liscence = table.Column<string>(nullable: true),
+                    PlaceName = table.Column<string>(maxLength: 50, nullable: true),
+                    License = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     Wifi = table.Column<bool>(nullable: false),
                     Whiteboard = table.Column<bool>(nullable: false),
@@ -258,7 +258,8 @@ namespace Setup.Migrations
                 name: "Account",
                 columns: table => new
                 {
-                    AccountID = table.Column<int>(nullable: false),
+                    AccountID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     CompanyName = table.Column<string>(nullable: true),
@@ -296,7 +297,8 @@ namespace Setup.Migrations
                     PhotoID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     PhotoName = table.Column<string>(nullable: true),
-                    PlaceID = table.Column<int>(nullable: false)
+                    PlaceID = table.Column<int>(nullable: false),
+                    PhotoBytes = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {

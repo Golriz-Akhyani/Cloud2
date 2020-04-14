@@ -8,6 +8,7 @@ namespace Setup.Models
 
     public class Photo
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PhotoID { get; set; }
         public string PhotoName { get; set; }
         public int PlaceID { get; set; }

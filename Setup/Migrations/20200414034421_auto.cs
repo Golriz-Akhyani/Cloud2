@@ -2,7 +2,7 @@
 
 namespace Setup.Migrations
 {
-    public partial class fixing3 : Migration
+    public partial class auto : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -8,6 +8,7 @@ namespace Setup.Models
 
     public class Place
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PlaceID { get; set; }
 
         [StringLength(50, ErrorMessage = "Place Name cannot be longer than 50 characters.")]
