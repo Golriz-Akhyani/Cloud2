@@ -9,8 +9,13 @@ namespace Setup.Models
     public class Place
     {
         public int PlaceID { get; set; }
+
+        [StringLength(50, ErrorMessage = "Place Name cannot be longer than 50 characters.")]
         public string PlaceName { get; set; }
-        public string Liscence { get; set; }
+
+        [Display(Name = "License Number")]
+        public string License { get; set; }
+
         public string Address { get; set; }
         public bool Wifi { get; set; }
         public bool Whiteboard { get; set; }
