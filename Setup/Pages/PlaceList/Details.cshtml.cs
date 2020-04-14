@@ -37,7 +37,7 @@ namespace Setup.Pages.PlaceList
                 return NotFound();
             }
 
-            Photo = await _context.Photo.Where(p => p.PlaceID == id).AsNoTracking().ToListAsync();
+           Photo = await _context.Photo.Where(p => p.PlaceID == id).AsNoTracking().ToListAsync();
 
             return Page();
         }

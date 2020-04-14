@@ -12,5 +12,8 @@ namespace Setup.Models
         public string PhotoName { get; set; }
         public int PlaceID { get; set; }
         public byte[] PhotoBytes { get; set; }
+
+       
+
     }
 }

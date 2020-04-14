@@ -19,8 +19,8 @@ namespace Setup.Models
         public string Description { get; set; }
 
 
-        public ICollection<Account> Account { get; set; }
-        public ICollection<Photo> Photo { get; set; }
+        public ICollection<Account> AccountID { get; set; }
+        public ICollection<Photo> PhotoID { get; set; }
    
 
     }
