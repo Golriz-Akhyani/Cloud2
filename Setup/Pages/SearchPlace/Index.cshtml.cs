@@ -59,7 +59,7 @@ namespace Setup.Pages.SearchPlace
                     PlaceIQ = PlaceIQ.OrderBy(s => s.Address);
                     break;
             }
-            int pageSize = 3;
+            int pageSize = 5;
             Place = await PaginatedList<Place>.CreateAsync(
                 PlaceIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
 

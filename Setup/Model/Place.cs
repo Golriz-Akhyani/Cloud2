@@ -15,8 +15,9 @@ namespace Setup.Models
         public string PlaceName { get; set; }
 
         [Display(Name = "License Number")]
+        [StringLength(8, ErrorMessage = "License Number is A with 7 Digital Number.")]
         public string License { get; set; }
-
+       
         public string Address { get; set; }
         public bool Wifi { get; set; }
         public bool Whiteboard { get; set; }
@@ -27,7 +28,7 @@ namespace Setup.Models
 
         public ICollection<Account> AccountID { get; set; }
         public ICollection<Photo> PhotoID { get; set; }
-   
+
 
     }
 }

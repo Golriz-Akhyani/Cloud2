@@ -64,6 +64,52 @@ namespace Setup.Model
                      }
                 );
                 context.SaveChanges();
+                var Places = new Place[]
+                {
+                    new Place
+                    {
+                        PlaceName="Starbucks",
+                        License="A0147211",Address="Georgia Street",
+                        Wifi=true,
+                        Whiteboard=false,
+                        Washroom=true,
+                        Description="NA"
+                    },
+                    new Place
+                    {
+                        PlaceName="Tin Horton",
+                        License="A0147212",
+                        Address="Easert Street",
+                        Wifi=true,
+                        Whiteboard=true,
+                        Washroom=true,
+                        Description="NA"
+                    },
+                    new Place
+                    {
+                        PlaceName="Bal Cafe",
+                        License="A0147213",
+                        Address="Keuber Street",
+                        Wifi=true,
+                        Whiteboard=false,
+                        Washroom=false,
+                        Description="NA"
+                    },
+                    new Place
+                    {
+                        PlaceName="Parallel 49 ",
+                        License="A0147214",
+                        Address="Win Street",
+                        Wifi=true,
+                        Whiteboard=true,
+                        Washroom=true,
+                        Description="NA" }
+                };
+                foreach (Place p in Places)
+                {
+                    context.Place.Add(p);
+                }
+                context.SaveChanges();
             }
         }
     }
