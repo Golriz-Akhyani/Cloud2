@@ -68,7 +68,7 @@ namespace Setup.Pages.UserAccount
                 AccountIQ = AccountIQ.Where(k => k.UserName.Contains(searchString));
             }
 
-            int pageSize = 3;
+            int pageSize = 5;
 
             Account = await PaginatedList<Account>.CreateAsync(
                 AccountIQ.AsNoTracking()
