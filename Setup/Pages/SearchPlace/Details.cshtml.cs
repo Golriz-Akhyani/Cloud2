@@ -20,11 +20,8 @@ namespace Setup.Pages.SearchPlace
         }
 
 
-        public IList<Photo> Photo { get; set; }
         public Place Place { get; set; }
 
-     
-        /*need help*/
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -32,17 +29,17 @@ namespace Setup.Pages.SearchPlace
                 return NotFound();
             }
 
-            this.Photo = await _context.Photo.ToListAsync();
-            if (Photo == null)
+            Place = await _context.Place.FirstOrDefaultAsync(m => m.PlaceID == id);
+
+            if (Place == null)
             {
                 return NotFound();
             }
             return Page();
-        }    
 
 
+        }
 
     }
-
 }
 

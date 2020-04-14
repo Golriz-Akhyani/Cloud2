@@ -29,21 +29,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Place[0].Address)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Place[0].Wifi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Place[0].Whiteboard)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Place[0].ParkingLot)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Place[0].Washroom)
-            </th>
+            
 
             <th>
-                <b>Photos</b>
+                <b>Others</b>
             </th>
             <th></th>
         </tr>
@@ -60,24 +49,12 @@
                 <th>
                     @Html.DisplayFor(modelitem => item.Address)
                 </th>
-                <th>
-                    @Html.DisplayFor(modelitem => item.Wifi)
-                </th>
-                <th>
-                    @Html.DisplayFor(modelitem => item.Whiteboard)
-                </th>
-                <th>
-                    @Html.DisplayFor(modelitem => item.ParkingLot)
-                </th>
-                <th>
-                    @Html.DisplayFor(modelitem => item.Washroom)
-                </th>
+      
 
                 <td>
 
-                    <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a>
-                </td>
-                <td>
+                    <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a> | 
+               
 
                     <a asp-page="Booking/Index" asp-route-id="@Model.Place[0].PlaceID ">Booking</a>
 
