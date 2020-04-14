@@ -186,7 +186,9 @@ namespace Setup.Migrations
 
             modelBuilder.Entity("Setup.Models.Account", b =>
                 {
-                    b.Property<int>("AccountID");
+                    b.Property<int>("AccountID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("BookingID");
 

@@ -10,8 +10,8 @@ using Setup.Data;
 namespace Setup.Migrations
 {
     [DbContext(typeof(SetupContext))]
-    [Migration("20200414010749_fixing4")]
-    partial class fixing4
+    [Migration("20200414034148_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -188,7 +188,9 @@ namespace Setup.Migrations
 
             modelBuilder.Entity("Setup.Models.Account", b =>
                 {
-                    b.Property<int>("AccountID");
+                    b.Property<int>("AccountID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("BookingID");
 
@@ -286,7 +288,7 @@ namespace Setup.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("Liscence");
+                    b.Property<string>("License");
 
                     b.Property<int?>("ListingID");
 

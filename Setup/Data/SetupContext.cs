@@ -12,7 +12,6 @@ namespace Setup.Data
         public SetupContext(DbContextOptions<SetupContext> options)
             : base(options)
         {
-          //  this.Database.Migrate();
         }
         public DbSet<Setup.Models.Account> Account { get; set; }
         public DbSet<Setup.Models.Place> Place { get; set; }
