@@ -20,18 +20,18 @@ namespace Setup.Pages.SearchPlace
         }
         public IList<Place> Place { get; set; }
         public IList<Photo> Photo { get; set; }
-        public string NameSort { get; set;}
-        public string CurrentSort { get; set;}
+        public string NameSort { get; set; }
+        public string CurrentSort { get; set; }
         public string CurrentFilter { get; set; }
-        
-        public async Task OnGetAsync(string sortOrder,string searchstring)
+
+        public async Task OnGetAsync(string sortOrder, string searchstring)
         {
 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             CurrentFilter = searchstring;
 
             IQueryable<Place> PlaceIQ = from s in _context.Place
-                                            select s;
+                                        select s;
 
             if (!String.IsNullOrEmpty(searchstring))
             {
@@ -43,12 +43,12 @@ namespace Setup.Pages.SearchPlace
                 case "name_desc":
                     PlaceIQ = PlaceIQ.OrderByDescending(s => s.PlaceName);
                     break;
-                
+
                 default:
                     PlaceIQ = PlaceIQ.OrderBy(s => s.Address);
                     break;
             }
-            
+
             Place = await PlaceIQ
                 .AsNoTracking().ToListAsync();
         }
