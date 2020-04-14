@@ -19,7 +19,7 @@ namespace Setup.Pages.UserAccount
             _context = context;
         }
 
-        public IList<Account> Account { get;set; }
+        public PaginatedList<Account> Account { get;set; }
 
 
         public string NameSort { get; set; }
@@ -28,10 +28,22 @@ namespace Setup.Pages.UserAccount
         public string CurrentSort { get; set; }
 
 
-        public async Task OnGetAsync(string sortOrder,string searchstring)
+        public async Task OnGetAsync(string sortOrder,
+             string currentFilter, string searchString, int? pageIndex)
         {
+            CurrentSort = sortOrder;
+
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
 
             IQueryable<Account> AccountIQ = from s in _context.Account select s;
             switch (sortOrder)
@@ -50,14 +62,17 @@ namespace Setup.Pages.UserAccount
                     break;
             }
 
-            CurrentFilter = searchstring;
-            if (!String.IsNullOrEmpty(searchstring))
+            CurrentFilter = searchString;
+            if (!String.IsNullOrEmpty(searchString))
             {
-                AccountIQ = AccountIQ.Where(k => k.UserName.Contains(searchstring));
+                AccountIQ = AccountIQ.Where(k => k.UserName.Contains(searchString));
             }
-            Account = await AccountIQ
-                .AsNoTracking()
-                .ToListAsync();
+
+            int pageSize = 3;
+
+            Account = await PaginatedList<Account>.CreateAsync(
+                AccountIQ.AsNoTracking()
+                , pageIndex ?? 1, pageSize);
         }
     }
 }
