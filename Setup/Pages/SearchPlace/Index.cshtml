@@ -22,9 +22,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Place[0].PlaceName)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
+                    @Html.DisplayNameFor(model => model.Place[0].PlaceName)
+                </a>
             </th>
-
             <th>
                 @Html.DisplayNameFor(model => model.Place[0].Address)
             </th>
@@ -40,7 +41,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Place[0].Washroom)
             </th>
-         
+
             <th>
                 <b>Photos</b>
             </th>
@@ -50,38 +51,38 @@
     <tbody>
         @foreach (var item in Model.Place)
         {
-        <tr>
+            <tr>
 
-            <th>
-                @Html.DisplayFor(modelitem => item.PlaceName)
-            </th>
+                <th>
+                    @Html.DisplayFor(modelitem => item.PlaceName)
+                </th>
 
-            <th>
-                @Html.DisplayFor(modelitem => item.Address)
-            </th>
-            <th>
-                @Html.DisplayFor(modelitem => item.Wifi)
-            </th>
-            <th>
-                @Html.DisplayFor(modelitem => item.Whiteboard)
-            </th>
-            <th>
-                @Html.DisplayFor(modelitem => item.ParkingLot)
-            </th>
-            <th>
-                @Html.DisplayFor(modelitem => item.Washroom)
-            </th>
+                <th>
+                    @Html.DisplayFor(modelitem => item.Address)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelitem => item.Wifi)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelitem => item.Whiteboard)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelitem => item.ParkingLot)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelitem => item.Washroom)
+                </th>
 
-            <td>
+                <td>
 
-                <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a>
-            </td>
-            <td>
+                    <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a>
+                </td>
+                <td>
 
-                <a asp-page="Booking/Index" asp-route-id="@Model.Place[0].PlaceID ">Booking</a>
+                    <a asp-page="Booking/Index" asp-route-id="@Model.Place[0].PlaceID ">Booking</a>
 
-            </td>
-        </tr>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
