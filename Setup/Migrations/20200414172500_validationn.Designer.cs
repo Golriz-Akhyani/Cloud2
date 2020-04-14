@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Setup.Data;
 
 namespace Setup.Migrations
 {
     [DbContext(typeof(SetupContext))]
-    partial class SetupContextModelSnapshot : ModelSnapshot
+    [Migration("20200414172500_validationn")]
+    partial class validationn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -206,7 +208,8 @@ namespace Setup.Migrations
 
                     b.Property<int?>("PlaceID");
 
-                    b.Property<string>("Province");
+                    b.Property<string>("Province")
+                        .HasMaxLength(2);
 
                     b.Property<string>("Street");
 
@@ -214,7 +217,8 @@ namespace Setup.Migrations
 
                     b.Property<string>("UserName");
 
-                    b.Property<string>("ZipCode");
+                    b.Property<string>("ZipCode")
+                        .HasMaxLength(7);
 
                     b.HasKey("AccountID");
 

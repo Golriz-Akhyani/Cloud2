@@ -9,6 +9,7 @@ namespace Setup.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TimeID { get; set; }
+        public DateTime Timeset { get; set; }
         public string Description { get; set; }
 
     }
