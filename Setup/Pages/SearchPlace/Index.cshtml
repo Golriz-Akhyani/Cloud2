@@ -10,10 +10,11 @@
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
-            Search by Address:
+            Search by Name:
             <input type="text" name="SearchString" value="@Model.CurrentFilter" />
             <input type="submit" value="Search" class="btn btn-default" /> |
             <a asp-page="./Index">Back to full List</a>
+
         </p>
     </div>
 </form>
@@ -22,14 +23,18 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                    asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Place[0].PlaceName)
                 </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Place[0].Address)
             </th>
-            
+            <th>
+                @Html.DisplayNameFor(model => model.Place[0].License)
+            </th>
+
 
             <th>
                 <b>Others</b>
@@ -49,13 +54,14 @@
                 <th>
                     @Html.DisplayFor(modelitem => item.Address)
                 </th>
-      
+                <th>
+                    @Html.DisplayFor(modelitem => item.License)
+                </th>
+   
 
                 <td>
 
                     <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a> | 
-               
-
                     <a asp-page="Booking/Index" asp-route-id="@Model.Place[0].PlaceID ">Booking</a>
 
                 </td>
@@ -63,3 +69,22 @@
         }
     </tbody>
 </table>
+@{
+    var prevDisabled = !Model.Place.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Place.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Place.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Place.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

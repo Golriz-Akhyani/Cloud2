@@ -18,24 +18,35 @@ namespace Setup.Pages.SearchPlace
         {
             _context = context;
         }
-        public IList<Place> Place { get; set; }
+        public PaginatedList<Place> Place { get; set; }
         public IList<Photo> Photo { get; set; }
         public string NameSort { get; set; }
         public string CurrentSort { get; set; }
         public string CurrentFilter { get; set; }
 
-        public async Task OnGetAsync(string sortOrder, string searchstring)
+
+        public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
+            CurrentSort = sortOrder;
 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            CurrentFilter = searchstring;
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            CurrentFilter = searchString;
 
             IQueryable<Place> PlaceIQ = from s in _context.Place
                                         select s;
 
-            if (!String.IsNullOrEmpty(searchstring))
+            if (!String.IsNullOrEmpty(searchString))
             {
-                PlaceIQ = PlaceIQ.Where(s => s.Address.Contains(searchstring));
+                PlaceIQ = PlaceIQ.Where(s => s.PlaceName.Contains(searchString));
             }
 
             switch (sortOrder)
@@ -48,9 +59,10 @@ namespace Setup.Pages.SearchPlace
                     PlaceIQ = PlaceIQ.OrderBy(s => s.Address);
                     break;
             }
+            int pageSize = 3;
+            Place = await PaginatedList<Place>.CreateAsync(
+                PlaceIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
 
-            Place = await PlaceIQ
-                .AsNoTracking().ToListAsync();
         }
     }
 }
