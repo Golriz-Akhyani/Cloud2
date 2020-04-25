@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Setup.Models
@@ -31,6 +32,8 @@ namespace Setup.Models
     
         public string ZipCode { get; set; }
         public string UserName { get; set; }
+
+        public ICollection<PlaceAssign> PlaceAssign { get; set; }
 
     }
 }

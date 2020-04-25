@@ -25,10 +25,12 @@ namespace Setup.Models
         public bool Washroom { get; set; }
         public string Description { get; set; }
 
-
-        public ICollection<Account> AccountID { get; set; }
         public ICollection<Photo> PhotoID { get; set; }
+        public ICollection<PlaceAssign> PlaceAssigns { get; set; }
 
+
+        public int? AccountID { get; set; }
+        public Account Administrator { get; set; }
 
     }
 }

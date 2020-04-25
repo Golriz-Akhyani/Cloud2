@@ -20,8 +20,9 @@ namespace Setup.Model
                     return;
                 }
 
-                context.Account.AddRange(
-                    new Account
+                var accounts = new Account[]
+                {
+                                       new Account
                     {
                         FirstName = "Chloe",
                         LastName = "Yu",
@@ -40,21 +41,21 @@ namespace Setup.Model
                         FirstName = "Sina",
                         LastName = "Kestkar",
                         CompanyName = "Microsoft",
-                        Email = "s.k@gmailcom", 
+                        Email = "s.k@gmailcom",
                         Telephone = "778 453 7654",
                         Street = "721 Grandvile",
                         City = "Vancouver",
                         Province = "BC",
                         ZipCode = "V8G 2P9",
-                        UserName = ""
-                     },    
-                    
+                        UserName = "s.k"
+                     },
+
                     new Account
                     {
                         FirstName = "John",
                         LastName = "Mcleen",
                         CompanyName = "HighTec",
-                        Email = "John.Mcleen@gmail.com", 
+                        Email = "John.Mcleen@gmail.com",
                         Telephone = "604 673 8374",
                         Street = "6787 Marine Dr.",
                         City = "Richmond",
@@ -62,14 +63,18 @@ namespace Setup.Model
                         ZipCode = "H3F 3T5",
                         UserName = "John.Mcleen"
                      }
-                );
+                };
+
+                context.Account.AddRange(accounts);
                 context.SaveChanges();
-                var Places = new Place[]
+
+                var places = new Place[]
                 {
                     new Place
                     {
                         PlaceName="Starbucks",
-                        License="A0147211",Address="Georgia Street",
+                        License="A0147211",
+                        Address="Georgia Street",
                         Wifi=true,
                         Whiteboard=false,
                         Washroom=true,
@@ -77,7 +82,7 @@ namespace Setup.Model
                     },
                     new Place
                     {
-                        PlaceName="Tin Horton",
+                        PlaceName="Tim Horton",
                         License="A0147212",
                         Address="Easert Street",
                         Wifi=true,
@@ -105,11 +110,37 @@ namespace Setup.Model
                         Washroom=true,
                         Description="NA" }
                 };
-                foreach (Place p in Places)
+                foreach (Place p in places)
                 {
                     context.Place.Add(p);
                 }
                 context.SaveChanges();
+
+                var placeAccount = new PlaceAssign[]
+            {
+                new PlaceAssign {
+                    AccountID = accounts.Single (c => c.UserName == "c.yu" ).AccountID,
+                    PlaceID = places.Single (i => i.PlaceName == "Tim Horton").PlaceID
+                    },
+               
+                new PlaceAssign {
+                    AccountID = accounts.Single (c => c.UserName == "s.k" ).AccountID,
+                    PlaceID = places.Single (i => i.PlaceName == "Bal Cafe").PlaceID
+                    },
+              
+                new PlaceAssign {
+                    AccountID = accounts.Single (c => c.UserName == "John.Mcleen" ).AccountID,
+                    PlaceID = places.Single (i => i.PlaceName == "Starbucks").PlaceID
+                    }
+
+            };
+
+                foreach (PlaceAssign ci in placeAccount)
+                {
+                    context.PlaceAssign.Add(ci);
+                }
+                context.SaveChanges();
+
             }
         }
     }

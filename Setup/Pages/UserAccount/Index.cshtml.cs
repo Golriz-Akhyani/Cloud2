@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Setup.Data;
 using Setup.Models;
-
+using Setup.Model.SetupViewModels;
 namespace Setup.Pages.UserAccount
 {
     public class IndexModel : PageModel
@@ -19,7 +19,10 @@ namespace Setup.Pages.UserAccount
             _context = context;
         }
 
-        public PaginatedList<Account> Account { get;set; }
+        public AccountIndexData Accounts { get; set; }
+        public int AccountID { get; set; }
+        public int PlaceID { get; set; }
+        public PaginatedList<Account> Account { get; set; }
 
 
         public string NameSort { get; set; }
@@ -28,9 +31,33 @@ namespace Setup.Pages.UserAccount
         public string CurrentSort { get; set; }
 
 
+
+
+
         public async Task OnGetAsync(string sortOrder,
-             string currentFilter, string searchString, int? pageIndex)
+                 string currentFilter, string searchString, int? pageIndex, int? id, int placeID)
         {
+
+
+            Accounts = new AccountIndexData();
+            Accounts.Accounts = await _context.Account
+                  .Include(i => i.PlaceAssign)
+                     .ThenInclude(i => i.Place)
+                  .AsNoTracking()
+                  .ToListAsync();
+
+            if (id != null)
+            {
+                AccountID = id.Value;
+                Account account = Accounts.Accounts.Where(
+                i => i.AccountID == id.Value).Single();
+                Accounts.Places = account.PlaceAssign.Select(s => s.Place);
+            }
+
+
+        
+
+
             CurrentSort = sortOrder;
 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -73,6 +100,7 @@ namespace Setup.Pages.UserAccount
             Account = await PaginatedList<Account>.CreateAsync(
                 AccountIQ.AsNoTracking()
                 , pageIndex ?? 1, pageSize);
+
         }
     }
 }

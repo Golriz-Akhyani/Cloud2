@@ -43,10 +43,7 @@ namespace Setup.Pages.PlaceList
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+           
 
             _context.Attach(Place).State = EntityState.Modified;
 

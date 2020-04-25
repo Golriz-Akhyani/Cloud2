@@ -24,6 +24,7 @@
 <table class="table">
     <thead>
         <tr>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Place[0].PlaceName)
             </th>
@@ -40,24 +41,28 @@
     <tbody>
         @foreach (var item in Model.Place)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PlaceName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.License)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.License)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountID)
+            </td>
 
 
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.PlaceID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.PlaceID">Delete</a>
-                </td>
-            </tr>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PlaceID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PlaceID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PlaceID">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

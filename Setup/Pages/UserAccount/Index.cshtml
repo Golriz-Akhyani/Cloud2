@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model Setup.Pages.UserAccount.IndexModel
 
 @{
@@ -56,28 +56,41 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Account)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CompanyName)
-                </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.AccountID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.AccountID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.AccountID">Delete</a>
-                </td>
-            </tr>
+        @foreach (var item in Model.Accounts.Accounts)
+        {
+            string selectedRow = "";
+            if (item.AccountID == Model.AccountID)
+            {
+                selectedRow = "success";
+            }
+
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+
+        
+          
+
+
+            <td>
+                <a asp-page="./Index" asp-route-id="@item.AccountID">Select</a> |
+                <a asp-page="./Edit" asp-route-id="@item.AccountID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AccountID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AccountID">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
@@ -102,3 +115,35 @@
    class="btn btn-default @nextDisabled">
     Next
 </a>
+
+@if (Model.Accounts.Places != null)
+{
+    <h3>Places related to this account</h3>
+    <table class="table">
+        <tr>
+            <th>Place Name</th>
+            <th>Address</th>
+            <th>License Number</th>
+          
+        </tr>
+
+        @foreach (var item in Model.Accounts.Places)
+        {
+        
+    <tr>
+
+        <td>
+            @item.PlaceName
+        </td>
+        <td>
+            @item.Address
+        </td>
+        <td>
+            @item.License
+        </td>
+        
+    </tr>
+        }
+
+    </table>
+}

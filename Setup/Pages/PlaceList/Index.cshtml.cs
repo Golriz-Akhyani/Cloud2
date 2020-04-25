@@ -12,8 +12,10 @@ namespace Setup.Pages.PlaceList
 {
     public class IndexModel : PageModel
     {
-        private readonly Setup.Data.SetupContext _context;
 
+        public IList<PlaceAssign> PlaceVM { get; set; }
+
+        private readonly Setup.Data.SetupContext _context; 
         public IndexModel(Setup.Data.SetupContext context)
         {
             _context = context;
@@ -33,6 +35,13 @@ namespace Setup.Pages.PlaceList
 
             Place = await placeIQ
                 .AsNoTracking().ToListAsync();
+
+            PlaceVM = await _context.Place
+                 .Select(p => new PlaceAssign
+                 {
+                     PlaceID = p.PlaceID      
+                     
+                 }).ToListAsync();
         }
     }
 }
