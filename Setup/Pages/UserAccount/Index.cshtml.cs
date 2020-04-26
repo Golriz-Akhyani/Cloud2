@@ -54,10 +54,6 @@ namespace Setup.Pages.UserAccount
                 Accounts.Places = account.PlaceAssign.Select(s => s.Place);
             }
 
-
-        
-
-
             CurrentSort = sortOrder;
 
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
